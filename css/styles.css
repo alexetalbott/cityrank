@@ -1,13 +1,33 @@
 body {
-  background-color: coral;
+  background-color: #ff7575;
   padding: 50px;
+}
+
+.results {
+  display: none;
 }
 
 input[type=checkbox] {
   transform: scale(1.5);
 }
+.sidebar {
+  float: right;
+  text-align: left;
+  background-color: lightblue;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  height: 100%;
+}
 
-.orderConfirmation {
-  display: none;
+.jumbotron {
+  text-align: center;
+  background-color: #ff7575;
+  padding: 20px;
+}
+
+h1 {
+  font-family: 'Berkshire Swash', cursive;
 }
 ;

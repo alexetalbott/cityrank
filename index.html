@@ -1,74 +1,145 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pizzaco&trade;</title>
+    <title>CityRank.com</title>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
     <script src="js/jquery.js"></script>
     <script src="js/scripts.js"></script>
   </head>
   <body>
     <div class="container">
-      <h1>Pick-a-Pizza&trade; App from PizzaCo!</h2>
+      <div class="jumbotron">
+        <h1>CityRank</h1>
+      </div>
+      <h2 style="text-align: center">See How Your City Ranks Now!</h2>
+      <div class="sidebar">
+        <p>Nashville</p>
+        <img src="img/nashville.jpg">
+        <b></b>
+        <p>Austin</p>
+        <img src="img/nashville.jpg">
+        <b></b>
+        <p>San Francisco</p>
+        <img src="img/nashville.jpg">
+      </div>
       <div class="row">
         <div class="col-md-6">
-          <form id="new-pizza"><br>
-            <!-- select pizza topping -->
-            <p>What type of crust do you want?<p>
-            <div class="radio">
-            <label for="new-pizza-crust">
-              <input type="radio" name="crust" value="regular" checked>
-              Regular Crust</label>
+          <form id="cityForm"><br>
+            <div class="form-group">
+                <label for="cityName">City Name:</label>
+                <input id="cityName" class="form-control" type="text">
             </div>
-            <div class="radio">
-            <label for="new-pizza-crust">
-              <input type="radio" name="crust" value="gluten-free">
-              Gluten-Free</label>
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input id="state" class="form-control" type="text">
             </div>
-            <div class="radio">
-            <label for="new-pizza-crust">
-              <input type="radio" name="crust" value="spinach">
-              Spinach Crust</label>
-            </div><br>
-            <!-- select pizza size -->
-            <p>What size do you want?<p>
-            <div class="radio">
-            <label for="new-pizza-size">
-              <input type="radio" name="size" value="large" checked>
-              Large</label>
-            </div>
-            <div class="radio">
-            <label for="new-pizza-size">
-              <input type="radio" name="size" value="medium">
-              Medium</label>
-            </div>
-            <div class="radio">
-            <label for="new-pizza-size">
-              <input type="radio" name="size" value="small">
-              Small</label>
-            </div><br>
-            <!-- select pizza toppings -->
-            <p>Which toppings do you want? ($1/each)</p>
-            <input type="checkbox" name="new-pizza-topping" value=" pepperoni"> pepperoni<br>
-            <input type="checkbox" name="new-pizza-topping" value=" sausage"> sausage<br>
-            <input type="checkbox" name="new-pizza-topping" value=" jalapenos"> jalapenos<br>
-            <input type="checkbox" name="new-pizza-topping" value=" ham"> ham<br>
-            <input type="checkbox" name="new-pizza-topping" value=" pineapple"> pineapple<br>
-            <input type="checkbox" name="new-pizza-topping" value=" ricotta"> ricotta<br>
-            <input type="checkbox" name="new-pizza-topping" value=" green bell pepper"> green bell pepper<br>
-            <input type="checkbox" name="new-pizza-topping" value=" honey"> honey<br><br>
-
-            <button type="submit" class="btn">Submit Your Order!</button>
-
-            <h2 class="orderConfirmation">Your Order is Confirmed!</h2>
-            <ul id="showOrder">
+            <p>How would you rate this city on a 1-4 scale (4 being best) for the following?</p>
+            <p>My city...</p>
+            <ol>
+              <li>
+                <p>is artsy & weird:</p>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="artsy" ng-value="1" checked>1</label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="artsy" ng-value="2">2</label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="artsy" ng-value="3">3</label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="artsy" ng-value="4">4</label>
+                </div>
+              </li>
+              <li>
+                <p>has good public transportation:</p>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="transportation" ng-value="1" checked>1</label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="transportation" ng-value="2">2</label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="transportation" ng-value="3">3</label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="transportation" ng-value="4">4</label>
+                </div>
+              </li>
+              <li>
+                <p>has beautiful, accessible outdoor wilderness:</p>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="wild" ng-value="1" checked>1</label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="wild" ng-value="2">2</label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="wild" ng-value="3">3</label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="wild" ng-value="4">4</label>
+                </div>
+              </li>
+              <li>
+                <p>has a strong restaurant & cafe scene:</p>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="restaurant" ng-value="1" checked>1</label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="restaurant" ng-value="2">2</label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="restaurant" ng-value="3">3</label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="restaurant" ng-value="4">4</label>
+                </div>
+              </li>
+              <li>
+                <p>is dog-friendly:</p>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="dog" ng-value="1" checked>1</label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="dog" ng-value="2">2</label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="dog" ng-value="3">3</label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="dog" ng-value="4">4</label>
+                </div>
+              </li>
+            <ol>
+            <button type="submit" class="btn">Submit to Find Your CityRank!</button>
+          </form>
+          <h2 class="results">Your Results Are Ready!</h2>
+            <ul id="showRank">
 
             </ul>
-
-            <h3 class="orderConfirmation">Click <input id="refresh" class ="btn" type="button" value="here"
-              onClick="window.location.reload()"> to order again!</h3>
-
-          </form>
         </div>
       </div>
     </div>
