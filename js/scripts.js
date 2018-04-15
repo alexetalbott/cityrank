@@ -1,13 +1,16 @@
 //business logic
-function Pizza (crust, size, toppings, price) {
-  this.pizzaCrust = crust;
-  this.pizzaSize = size;
-  this.pizzaToppings = toppings;
-  this.price = price;
+function City (name, state, artScore, tranScore, wildScore, restScore, dogScore) {
+  this.name = name;
+  this.state = state;
+  this.artScore = artScore;
+  this.tranScore = tranScore;
+  this.wildScore = wildScore;
+  this.restScore= restScore;
+  this.dog = dogScore;
 }
 
-Pizza.prototype.fullOrder = function() {
-  return "Crust: " + this.pizzaCrust + "</br>Size: " + this.pizzaSize + "</br>Toppings: " + this.pizzaToppings;
+City.prototype.total = function() {
+  return (this.artScore);
 }
 
 //user interface logic
@@ -15,20 +18,21 @@ $(document).ready(function() {
   $("form").submit(function(event) {
     event.preventDefault();
 
-      var crust = $("input:radio[name=crust]:checked").val();
-      var size = $("input:radio[name=size]:checked").val();
-      var toppings = [];
+    var cityName = $("input#cityName").val();
+    var stateName = $("input#state").val();
 
-      //push toppings into array
-      $("input:checkbox[name=new-pizza-topping]:checked").each(function(){
-        toppings.push($(this).val());
-      });
-      //
-      var price = 5 + toppings.length;
-      var newPizza = new Pizza(crust, size, toppings, price);
+    var art = parseInt($("input:radio[name=artsy]:checked").val());
+    var tran = parseInt($("input:radio[name=transportation]:checked").val());
+    var wild = parseInt($("input:radio[name=wild]:checked").val());
+    var rest = parseInt($("input:radio[name=restaurant]:checked").val());
+    var dog = parseInt($("input:radio[name=dog]:checked").val());
 
-      $(".orderConfirmation").show();
-      $("ul#showOrder").append("<li><span class='order'>"+newPizza.fullOrder()+"</span></li>");
-      $("ul#showOrder").append("</br><li><span class='order'><strong>Subtotal</strong>: $"+newPizza.price+"</span></li>");
+    var newCity = new City(cityName, stateName, art, tran, wild, rest, dog);
+    var points = newCity.total();
+
+      $(".results").show();
+      $("ul#showRank").append("<li><span class='order'>Your city had "+points+" points!</span></li>");
+
+      $("ul#showRank").append("</br><li><span class='order'><strong>Subtotal</strong>: $"+newCity.total()+"</span></li>");
   });
 });
