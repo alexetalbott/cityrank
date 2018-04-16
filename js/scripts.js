@@ -6,11 +6,11 @@ function City (name, state, artScore, tranScore, wildScore, restScore, dogScore)
   this.tranScore = tranScore;
   this.wildScore = wildScore;
   this.restScore= restScore;
-  this.dog = dogScore;
+  this.dogScore = dogScore;
 }
 
 City.prototype.total = function() {
-  return (this.artScore);
+  return (this.artScore + this.tranScore + this.wildScore + this.restScore + this.dogScore);
 }
 
 //user interface logic
@@ -33,6 +33,6 @@ $(document).ready(function() {
       $(".results").show();
       $("ul#showRank").append("<li><span class='order'>Your city had "+points+" points!</span></li>");
 
-      $("ul#showRank").append("</br><li><span class='order'><strong>Subtotal</strong>: $"+newCity.total()+"</span></li>");
+
   });
 });

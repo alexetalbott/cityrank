@@ -21,6 +21,11 @@ input[type=checkbox] {
   height: 100%;
 }
 
+.sidebarCity {
+  text-align: center;
+  padding-top: 6px;
+  }
+
 .jumbotron {
   text-align: center;
   background-color: #ff7575;
