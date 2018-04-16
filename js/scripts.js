@@ -32,6 +32,11 @@ $(document).ready(function() {
 
       $(".results").show();
       $("ul#showRank").append("<li><span class='order'>Your city had "+points+" points!</span></li>");
+      if (points<12.5){
+        $("ul#showRank").append("<li><span class='order'>That's below average! Maybe time to move?</span></li>");
+      } else {
+        $("ul#showRank").append("<li><span class='order'>That's above average! Way to live in a cool city!</span></li>");
+      }
 
 
   });
